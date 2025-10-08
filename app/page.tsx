@@ -1,4 +1,3 @@
-import Image from "next/image";
 import TrafficLights from './components/TrafficLights';
 
 export default function Home() {
