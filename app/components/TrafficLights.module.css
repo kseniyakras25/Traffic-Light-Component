@@ -10,23 +10,25 @@
   border-width: 1px;
   border-style: solid;
 
-  &.red {
+  &:global(.red) {
     background-color: var(--red-bg);
-    border-color: var(--red-brd-clr);
+    border-color: var(--red);
   }
 
-  &.yellow {
+  &:global(.yellow) {
     background-color: var(--yellow-bg);
-    border-color: var(--yellow-brd-clr);
+    border-color: var(--yellow);
   }
 
-  &.green {
+  &:global(.green) {
     background-color: var(--green-bg);
-    border-color: var(--green-brd-clr);
+    border-color: var(--green);
   }
 }
 
+
 .trafficLight {
+  background: white;
   height: 144px;
   width: 74px;
   border-width: 1px;
@@ -34,38 +36,37 @@
   border-radius: 6px;
   padding: 10px 0;
 
-  .red & {
+  :global(.red) & {
     border-color: var(--red-brd-clr);
   }
 
-  .green & {
+  :global(.green) & {
     border-color: var(--green-brd-clr);
   }
 
-  .yellow & {
+  :global(.yellow) & {
     border-color: var(--yellow-brd-clr);
   }
 }
+
 
 .info {
   font-size: 30px;
   font-weight: 300;
+
+  :global(.red) & {
+    color: var(--red-brd-clr);
+  }
+
+  :global(.green) & {
+    color: var(--green-brd-clr);
+  }
+
+  :global(.yellow) & {
+    color: var(--yellow-brd-clr);
+  }
 }
 
-.status {
-  .red & {
-    border-color: var(--red-brd-clr);
-  }
-
-  .green & {
-    border-color: var(--green-brd-clr);
-  }
-
-  .yellow & {
-    border-color: var(--yellow-brd-clr);
-  }
-
-}
 
 .light {
   background: rgba(196, 196, 196, 1);
@@ -73,4 +74,19 @@
   width: 24px;
   border-radius: 50%;
   margin: auto;
+}
+
+:global(.red) :global(.active) {
+  background: var(--red);
+  box-shadow: 0px 0px 10px 0px var(--red);
+}
+
+:global(.green) :global(.active) {
+  background: var(--green);
+   box-shadow: 0px 0px 10px 0px var(--green);
+}
+
+:global(.yellow) :global(.active) {
+  background: var(--yellow);
+   box-shadow: 0px 0px 10px 0px var(--yellow);
 }
