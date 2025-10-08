@@ -10,7 +10,7 @@ const roboto  = Roboto({
 });
 
 export const metadata: Metadata = {
-  title: "Traffic Light App",
+  title: "Traffic Light",
   description: "Traffic light component",
 };
 
