@@ -15,9 +15,27 @@ export default function TrafficLights() {
         green: 8500
     };
 
+    useEffect(() => {
+        const cycleTimeoutId = setTimeout(() => {
+            switch (activeLight) {
+                case 'green':
+                    setActiveLight('yellow');
+                    break;
+                case 'yellow':
+                    setActiveLight('red');
+                    break;
+                case 'red':
+                    setActiveLight('green');
+                    break;
+            }
+        }, durations[activeLight]);
+      
+
+        return () => clearTimeout(cycleTimeoutId);
+    }, [activeLight]);
 
     return (
-        <div className={`${styles.container} ${styles.green}`}>
+        <div className={`${styles.container} ${activeLight}`}>
 
             <div className={`${styles.trafficLight} flex flex-col justify-center items-center`}>
                 <div className={styles.light}></div>
@@ -26,7 +44,7 @@ export default function TrafficLights() {
             </div>
 
             <div className={styles.info}>
-                <p className={`${styles.status} mt-10`}>The light is <span>green</span>.</p>
+                <p className={`${styles.status} mt-10`}>The light is <span>{activeLight}</span>.</p>
             </div>
         </div>
     )
