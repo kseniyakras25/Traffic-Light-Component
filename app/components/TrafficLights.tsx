@@ -45,7 +45,7 @@ export default function TrafficLights() {
                 </div>
 
                 <div className={styles.info}>
-                    <p className={`${styles.status} mt-10`}>The light is <span>{activeLight}</span>.</p>
+                    <p className={`mt-10`}>The light is <span>{activeLight}</span>.</p>
                 </div>
             </div>
             <div className={styles.cycleInfo}>
