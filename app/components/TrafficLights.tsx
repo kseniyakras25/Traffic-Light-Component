@@ -35,16 +35,22 @@ export default function TrafficLights() {
     }, [activeLight]);
 
     return (
-        <div className={`${styles.container} ${activeLight}`}>
+        <div>
+            <div className={`${styles.container} ${activeLight}`}>
 
-            <div className={`${styles.trafficLight} flex flex-col justify-center items-center`}>
-                <div className={`${styles.light} red ${activeLight === 'red' ? 'active' : ''}`}></div>
-                <div className={`${styles.light} yellow ${activeLight === 'yellow' ? 'active' : ''}`}></div>
-                <div className={`${styles.light} green ${activeLight === 'green' ? 'active' : ''}`}></div>
+                <div className={`${styles.trafficLight} flex flex-col justify-center items-center`}>
+                    <div className={`${styles.light} red ${activeLight === 'red' ? 'active' : ''}`}></div>
+                    <div className={`${styles.light} yellow ${activeLight === 'yellow' ? 'active' : ''}`}></div>
+                    <div className={`${styles.light} green ${activeLight === 'green' ? 'active' : ''}`}></div>
+                </div>
+
+                <div className={styles.info}>
+                    <p className={`${styles.status} mt-10`}>The light is <span>{activeLight}</span>.</p>
+                </div>
             </div>
-
-            <div className={styles.info}>
-                <p className={`${styles.status} mt-10`}>The light is <span>{activeLight}</span>.</p>
+            <div className={styles.cycleInfo}>
+                <p>Complete cycle: 20 seconds</p>
+                <p>Green & Red: 8.5s • Yellow: 3s</p>
             </div>
         </div>
     )
